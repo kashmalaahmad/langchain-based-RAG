@@ -28,7 +28,8 @@ def split_documents(documents: list[Document], chunk_size: int = 800, chunk_over
         c.metadata = meta
     return chunks
 
-def add_chunks_in_batches(db, chunks, batch_size=3):
+def add_chunks_in_batches(db, chunks, batch_size=1):
+    """Add chunks to database with retry logic for 504 errors."""
     total_chunks = len(chunks)
     print(f"Total chunks to process: {total_chunks}")
     
@@ -39,19 +40,31 @@ def add_chunks_in_batches(db, chunks, batch_size=3):
         
         print(f"Processing batch {current_batch_num}/{total_batches} ({len(batch)} chunks)...")
         
-        try:
-            db.add_documents(batch)
-            print("  - Success. Sleeping for 10 seconds...")
-            time.sleep(10) 
-        except Exception as e:
-            print(f"  - Error in batch: {e}")
-            print("  - Waiting 60 seconds before retrying this batch...")
-            time.sleep(60)
+        max_retries = 3
+        retry_count = 0
+        
+        while retry_count < max_retries:
             try:
                 db.add_documents(batch)
-                print("  - Retry successful.")
-            except Exception as e2:
-                print(f"  - Retry failed: {e2}. Skipping this batch.")
+                print("  - Success. Sleeping for 5 seconds...")
+                time.sleep(5) 
+                break
+            except Exception as e:
+                retry_count += 1
+                error_msg = str(e)
+                
+                if "504" in error_msg or "Deadline" in error_msg:
+                    wait_time = 30 * retry_count  # 30s, 60s, 90s
+                    print(f"  - 504 Timeout error (attempt {retry_count}/{max_retries})")
+                    print(f"  - Waiting {wait_time} seconds before retry...")
+                    time.sleep(wait_time)
+                else:
+                    print(f"  - Error: {error_msg}")
+                    print(f"  - Retry {retry_count}/{max_retries} in 60 seconds...")
+                    time.sleep(60)
+        
+        if retry_count >= max_retries:
+            print(f"  - Failed after {max_retries} retries. Skipping batch.")
 
 def get_or_create_chroma(chunks, persist_directory=CHROMA_PATH, embedding_model=EMBED_MODEL):
     embedding_fn = GoogleGenerativeAIEmbeddings(model=embedding_model)
@@ -62,13 +75,13 @@ def get_or_create_chroma(chunks, persist_directory=CHROMA_PATH, embedding_model=
         
         if chunks:
             print(f"Adding {len(chunks)} new chunks to existing DB...")
-            add_chunks_in_batches(db, chunks, batch_size=3)
+            add_chunks_in_batches(db, chunks, batch_size=1)
             
         return db
 
     print("Creating NEW Chroma DB...")
     db = Chroma(persist_directory=persist_directory, embedding_function=embedding_fn)
-    add_chunks_in_batches(db, chunks, batch_size=3)
+    add_chunks_in_batches(db, chunks, batch_size=1)
     
     try:
         db.persist()
