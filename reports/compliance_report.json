@@ -1,0 +1,868 @@
+[
+  {
+    "rule_id": "RULE_001",
+    "status": "Not Applicable",
+    "evidence": [
+      {
+        "text": "Parties",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:4261"
+      },
+      {
+        "text": "Each Party",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:1801"
+      },
+      {
+        "text": "other than the Parties",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:3110"
+      },
+      {
+        "text": "other Party",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5"
+      }
+    ],
+    "confidence": 0.4,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "parties between entered into by by and between this agreement is made party",
+      "top_score": 0.7426873445510864,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_001\",\n  \"status\": \"Not Applicable\",\n  \"evidence\": [\n    {\n      \"text\": \"Parties\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:4261\"\n    },\n    {\n      \"text\": \"Each Party\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:1801\"\n    },\n    {\n      \"text\": \"other than the Parties\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:3110\"\n    },\n    {\n      \"text\": \"other Party\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5\"\n    }\n  ],\n  \"confidence\": 0.4,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.7426873445510864
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.7965104579925537
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8060593605041504
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8093796968460083
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.827159583568573
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.8352264165878296
+      }
+    ],
+    "rule_name": "Identification of Parties"
+  },
+  {
+    "rule_id": "RULE_002",
+    "status": "Compliant",
+    "evidence": [
+      {
+        "text": "IN WITNESS WHEREOF, the Parties hereto have caused this Agreement to be signed as of the date and year first above written.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:2:40"
+      }
+    ],
+    "confidence": 0.95,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "agreement date execution date dated dated as of made this this agreement is dated",
+      "top_score": 0.76808100938797,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_002\",\n  \"status\": \"Compliant\",\n  \"evidence\": [\n    {\n      \"text\": \"IN WITNESS WHEREOF, the Parties hereto have caused this Agreement to be signed as of the date and year first above written.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:2:40\"\n    }\n  ],\n  \"confidence\": 0.95,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.76808100938797
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.787129282951355
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8214951157569885
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8255414962768555
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 2,
+        "score": 0.835556149482727
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.8398812413215637
+      }
+    ],
+    "rule_name": "Agreement Date"
+  },
+  {
+    "rule_id": "RULE_003",
+    "status": "Compliant",
+    "evidence": [
+      {
+        "text": "This Agreement shall become effective on the Effective Date",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5"
+      }
+    ],
+    "confidence": 0.95,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "effective upon effective as of effective date commencement date shall be effective as of",
+      "top_score": 0.9038441181182861,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_003\",\n  \"status\": \"Compliant\",\n  \"evidence\": [\n    {\n      \"text\": \"This Agreement shall become effective on the Effective Date\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5\"\n    }\n  ],\n  \"confidence\": 0.95,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9038441181182861
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9448526501655579
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9550879597663879
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 2,
+        "score": 0.988146960735321
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9933725595474243
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9936497211456299
+      }
+    ],
+    "rule_name": "Effective Date"
+  },
+  {
+    "rule_id": "RULE_004",
+    "status": "Compliant",
+    "evidence": [
+      {
+        "text": "Term. This Agreement shall become effective on the Effective Date and shall continue in effect until either Party informs the other Party with thirty (30) day prior written notice of termination of this Agreement.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:632"
+      }
+    ],
+    "confidence": 0.851,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "expires initial term term of this agreement term shall expire perpetual",
+      "top_score": 0.7001557946205139,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_004\",\n  \"status\": \"Compliant\",\n  \"evidence\": [\n    {\n      \"text\": \"Term. This Agreement shall become effective on the Effective Date and shall continue in effect until either Party informs the other Party with thirty (30) day prior written notice of termination of this Agreement.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:632\"\n    }\n  ],\n  \"confidence\": 0.851,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.7001557946205139
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.7060367465019226
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8109436631202698
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8370749950408936
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8442026376724243
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8506444692611694
+      }
+    ],
+    "rule_name": "Expiration / Term"
+  },
+  {
+    "rule_id": "RULE_005",
+    "status": "Compliant",
+    "evidence": [
+      {
+        "text": "This Agreement shall become effective on the Effective Date and shall continue in effect until either Party informs the other Party with thirty (30) day prior written notice of termination of this Agreement.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5"
+      }
+    ],
+    "confidence": 0.8,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "renewal automatic extension successive period renewal automatically renew renew for a period",
+      "top_score": 1.0302305221557617,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_005\",\n  \"status\": \"Compliant\",\n  \"evidence\": [\n    {\n      \"text\": \"This Agreement shall become effective on the Effective Date and shall continue in effect until either Party informs the other Party with thirty (30) day prior written notice of termination of this Agreement.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5\"\n    }\n  ],\n  \"confidence\": 0.8,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 1.0302305221557617
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 1.0555486679077148
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 1.1293612718582153
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 1.1380589008331299
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 1.1422181129455566
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 1.1519290208816528
+      }
+    ],
+    "rule_name": "Renewal Terms"
+  },
+  {
+    "rule_id": "RULE_006",
+    "status": "Compliant",
+    "evidence": [
+      {
+        "text": "This Agreement shall become effective on the Effective Date and shall continue in effect until either Party informs the other Party with thirty (30) day prior written notice of termination of this Agreement.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5"
+      }
+    ],
+    "confidence": 0.9,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "notice to terminate notice period notice prior to expiration days prior to",
+      "top_score": 0.8425155878067017,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_006\",\n  \"status\": \"Compliant\",\n  \"evidence\": [\n    {\n      \"text\": \"This Agreement shall become effective on the Effective Date and shall continue in effect until either Party informs the other Party with thirty (30) day prior written notice of termination of this Agreement.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5\"\n    }\n  ],\n  \"confidence\": 0.9,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8425155878067017
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8538566827774048
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8609445095062256
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8689804077148438
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9124544858932495
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.9277973175048828
+      }
+    ],
+    "rule_name": "Notice to Terminate Renewal"
+  },
+  {
+    "rule_id": "RULE_007",
+    "status": "Non-Compliant",
+    "evidence": [
+      {
+        "text": "no evidence",
+        "source": "no evidence"
+      }
+    ],
+    "confidence": 0.1,
+    "recommended_corrections": [
+      "Include a clause specifying the governing law for the contract.",
+      "Include a clause specifying the jurisdiction or forum for resolving disputes related to the contract.",
+      "Ensure both parties agree to the selected governing law and jurisdiction."
+    ],
+    "_retrieval": {
+      "query": "governing law jurisdiction laws of the state governed by the laws of governed and construed",
+      "top_score": 0.906683087348938,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_007\",\n  \"status\": \"Non-Compliant\",\n  \"evidence\": [\n    {\n      \"text\": \"no evidence\",\n      \"source\": \"no evidence\"\n    }\n  ],\n  \"confidence\": 0.1,\n  \"recommended_corrections\": [\n    \"Include a clause specifying the governing law for the contract.\",\n    \"Include a clause specifying the jurisdiction or forum for resolving disputes related to the contract.\",\n    \"Ensure both parties agree to the selected governing law and jurisdiction.\"\n  ]\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.906683087348938
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9343044757843018
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9421818852424622
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.945934534072876
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9814916849136353
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 2,
+        "score": 0.9837850332260132
+      }
+    ],
+    "rule_name": "Governing Law and Jurisdiction"
+  },
+  {
+    "rule_id": "RULE_008",
+    "status": "Compliant",
+    "evidence": [
+      {
+        "text": "Term. This Agreement  shall become  effective on the Effective Date      and shall  continue in effect until  either  Party  informs the other Party      with thirty (30) day prior written notice of termination of this Agreement.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5"
+      },
+      {
+        "text": "with thirty (30) day prior written notice of termination of this Agreement.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:632"
+      }
+    ],
+    "confidence": 0.95,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "terminate at any time without liability terminate for convenience without cause",
+      "top_score": 0.7233352661132812,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_008\",\n  \"status\": \"Compliant\",\n  \"evidence\": [\n    {\n      \"text\": \"Term. This Agreement  shall become  effective on the Effective Date      and shall  continue in effect until  either  Party  informs the other Party      with thirty (30) day prior written notice of termination of this Agreement.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5\"\n    },\n    {\n      \"text\": \"with thirty (30) day prior written notice of termination of this Agreement.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:632\"\n    }\n  ],\n  \"confidence\": 0.95,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.7233352661132812
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.7490745782852173
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.7523511648178101
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.7560415267944336
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8380957245826721
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8505390286445618
+      }
+    ],
+    "rule_name": "Termination for Convenience"
+  },
+  {
+    "rule_id": "RULE_009",
+    "status": "Not Applicable",
+    "evidence": [
+      {
+        "text": "no evidence",
+        "source": "no evidence"
+      }
+    ],
+    "confidence": 0.05,
+    "_retrieval": {
+      "query": "assignment transfer successors and assigns may not assign without prior written consent assignability",
+      "top_score": 0.8176064491271973,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_009\",\n  \"status\": \"Not Applicable\",\n  \"evidence\": [\n    {\n      \"text\": \"no evidence\",\n      \"source\": \"no evidence\"\n    }\n  ],\n  \"confidence\": 0.05\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8176064491271973
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8487513065338135
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.8836280703544617
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.8902335166931152
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8956785202026367
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9047472476959229
+      }
+    ],
+    "rule_name": "Anti-Assignment / Assignment Restrictions",
+    "recommended_corrections": []
+  },
+  {
+    "rule_id": "RULE_010",
+    "status": "Not Applicable",
+    "evidence": [
+      {
+        "text": "In no event shall either Party be liable for the debts or obligations of the other, except as otherwise specifically provided in this Agreement.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:4850"
+      },
+      {
+        "text": "The Parties hereby covenant and agree to indemnify and hold harmless each other, it's agents and representatives from and against any and all losses, costs, expenses, liabilities, claims, demands, judgments and its settlements of every nature that are actually incurred by a Party, including without limitation reasonable attorney's fees for pre-trial, trial, appellate, judgment, post-judgment, execution, and alternative dispute resolution, which",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:1801"
+      }
+    ],
+    "confidence": 0.7,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "liability cap limitation of limitation of liability maximum liability aggregate liability",
+      "top_score": 0.9369440078735352,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_010\",\n  \"status\": \"Not Applicable\",\n  \"evidence\": [\n    {\n      \"text\": \"In no event shall either Party be liable for the debts or obligations of the other, except as otherwise specifically provided in this Agreement.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:4850\"\n    },\n    {\n      \"text\": \"The Parties hereby covenant and agree to indemnify and hold harmless each other, it's agents and representatives from and against any and all losses, costs, expenses, liabilities, claims, demands, judgments and its settlements of every nature that are actually incurred by a Party, including without limitation reasonable attorney's fees for pre-trial, trial, appellate, judgment, post-judgment, execution, and alternative dispute resolution, which\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:1801\"\n    }\n  ],\n  \"confidence\": 0.7,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9369440078735352
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9590779542922974
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9683454036712646
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9723306894302368
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.9848031401634216
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9901443719863892
+      }
+    ],
+    "rule_name": "Liability Cap / Limitation of Liability"
+  },
+  {
+    "rule_id": "RULE_011",
+    "status": "Not Applicable",
+    "evidence": [
+      {
+        "text": "insurance, social security or any other withholding pursuant to any law or requirement of any government body, or make available any of the benefits afforded to employees of UDC (iii) all of such payments, withholdings or benefits due any governmental agency, if any, are Business Affiliate=s sole responsibility\u037e and (iv) Business Affiliate will indemnify and hold harmless UDC from any and all loss or liability arising from his failure to make such payments, withholds and benefits, if any.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5984"
+      },
+      {
+        "text": "no evidence",
+        "source": "no evidence"
+      }
+    ],
+    "confidence": 0.5,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "insurance coverage policy shall maintain insurance insurance coverage commercial general liability",
+      "top_score": 0.9027260541915894,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_011\",\n  \"status\": \"Not Applicable\",\n  \"evidence\": [\n    {\n      \"text\": \"insurance, social security or any other withholding pursuant to any law or requirement of any government body, or make available any of the benefits afforded to employees of UDC (iii) all of such payments, withholdings or benefits due any governmental agency, if any, are Business Affiliate=s sole responsibility\u037e and (iv) Business Affiliate will indemnify and hold harmless UDC from any and all loss or liability arising from his failure to make such payments, withholds and benefits, if any.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:5984\"\n    },\n    {\n      \"text\": \"no evidence\",\n      \"source\": \"no evidence\"\n    }\n  ],\n  \"confidence\": 0.5,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9027260541915894
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.905089259147644
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9154189229011536
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9192609786987305
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.944869339466095
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 2,
+        "score": 0.9560125470161438
+      }
+    ],
+    "rule_name": "Insurance Requirements"
+  },
+  {
+    "rule_id": "RULE_012",
+    "status": "Compliant",
+    "evidence": [
+      {
+        "text": "A Confidential Information@ shall mean any and all information that a Party may reasonably expect to remain confidential and not shared with the general public at any time or that information that is protected by law.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:672"
+      },
+      {
+        "text": "Use and/or disclose the Confidential Information only as permitted or required by this Agreement or as otherwise required by law\u037e",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:2440"
+      },
+      {
+        "text": "Additionally, the Parties may disclose Confidential Information for the purposes authorized by this Agreement only (a) to its employees, subcontractors and agents, in accordance with this Agreement, or (b) as directed by the other Party.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:1300"
+      }
+    ],
+    "confidence": 0.9,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "confidentiality proprietary information confidential non-disclosure shall not disclose",
+      "top_score": 0.5505446791648865,
+      "num_retrieved": 12,
+      "evidence_low": true
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_012\",\n  \"status\": \"Compliant\",\n  \"evidence\": [\n    {\n      \"text\": \"A Confidential Information@ shall mean any and all information that a Party may reasonably expect to remain confidential and not shared with the general public at any time or that information that is protected by law.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:672\"\n    },\n    {\n      \"text\": \"Use and/or disclose the Confidential Information only as permitted or required by this Agreement or as otherwise required by law\u037e\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:2440\"\n    },\n    {\n      \"text\": \"Additionally, the Parties may disclose Confidential Information for the purposes authorized by this Agreement only (a) to its employees, subcontractors and agents, in accordance with this Agreement, or (b) as directed by the other Party.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:1300\"\n    }\n  ],\n  \"confidence\": 0.9,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.5505446791648865
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.5946594476699829
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.6237101554870605
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.6321027278900146
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.6709862947463989
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.7036316394805908
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.7209100127220154
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.7238001227378845
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.7781273126602173
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.836607038974762
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8840875625610352
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8996564149856567
+      }
+    ],
+    "rule_name": "Confidentiality / Non-Disclosure"
+  },
+  {
+    "rule_id": "RULE_013",
+    "status": "Not Applicable",
+    "evidence": [
+      {
+        "text": "no evidence",
+        "source": "no evidence"
+      }
+    ],
+    "confidence": 0.0,
+    "_retrieval": {
+      "query": "license grant exclusive license sublicense hereby grants license to grants to",
+      "top_score": 0.8511210680007935,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_013\",\n  \"status\": \"Not Applicable\",\n  \"evidence\": [\n    {\n      \"text\": \"no evidence\",\n      \"source\": \"no evidence\"\n    }\n  ],\n  \"confidence\": 0.0\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8511210680007935
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.860551655292511
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8634551763534546
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.883603572845459
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.8894708752632141
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.8989322185516357
+      }
+    ],
+    "rule_name": "License Grant (IP)",
+    "recommended_corrections": []
+  },
+  {
+    "rule_id": "RULE_014",
+    "status": "Not Applicable",
+    "evidence": [
+      {
+        "text": "NOW THEREFORE, in consideration of the premises, covenants and agreements and the mutual promises herein made, and in consideration of the representations, warranties, and covenants herein contained, and for other good and valuable consideration, the receipt and sufficiency of which is hereby acknowledged, the Parties hereto agree as follows: AGREEMENT 1. Definitions. A Confidential Information@ shall mean any and all information that a Party may reasonably expect to remain confidential and not shared with the general public at any time or that information that is protected by law.",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:672"
+      },
+      {
+        "text": "shared with the general public at any time or that information that is protected by law. 2. Services. It is anticipated that the Business Affiliate will provide services both for clients of the Business Affiliate and UDC that involve the use and disclosure of Confidential Information (the \"Services\"). Except as otherwise specified herein, the Parties may make any and all uses of Confidential Information necessary to perform the Services. Additionally, the Parties may disclose Confidential Information for the purposes authorized by this Agreement only (a) to its employees, subcontractors and agents, in accordance with this Agreement, or (b) as directed by the other Party. The Parties expressly agree",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:1300"
+      },
+      {
+        "text": "only (a) to its employees, subcontractors and agents, in accordance with this Agreement, or (b) as directed by the other Party. The Parties expressly agree that any and all uses or disclosures of the Confidential Information by a Party will be done in accordance with the terms of this Agreement and the provisions of all applicable federal and state laws and regulations. 3. Responsibilities of the Parties. With regard to its use and/or disclosure of Confidential Information, each Party hereby agrees to do the following: a. Use and/or disclose the Confidential Information only as permitted or required by this Agreement or as otherwise required by law\u037e 1",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:1875"
+      },
+      {
+        "text": "a. Use and/or disclose the Confidential Information only as permitted or required by this Agreement or as otherwise required by law\u037e 1 b. Report to the other Party, in writing, any use and/or disclosure of the Confidential Information that is not permitted or required by this Agreement of which a Party becomes aware within five (5) days of a Party=s discovery of such unauthorized use and/or disclosure\u037e c. Use appropriate safeguards to maintain the security of the Confidential Information and to prevent unauthorized use and/or disclosure of such Confidential Information\u037e d. Require all of its employees, representatives, subcontractors or",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:2440"
+      },
+      {
+        "text": "of such Confidential Information\u037e d. Require all of its employees, representatives, subcontractors or agents that receive or use or have access to Confidential Information under this Agreement to agree in writing to adhere to the same restrictions and conditions on the use and/or disclosure of Confidential Information that apply herein, including the obligation to return or destroy the Confidential Information as provided under paragraph g of this Section 3. e. Make available, during normal business hours, at a Party=s offices all records, books, agreements, policies and procedures relating to the use and/or disclosure of Confidential Information that is subject to this",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:3090"
+      },
+      {
+        "text": "Party. This provision shall apply to Confidential Information that is in the possession of subcontractors or agents of each Party. Each Party shall retain no copies of the Confidential Information of the other Party except as may be required by law. 6. Indemnification. The Parties hereby covenant and agree to indemnify and hold harmless each other, it's agents and representatives from and against any and all losses, costs, expenses, liabilities, claims, demands, judgments and its settlements of every nature that are actually incurred by a Party, including without limitation reasonable attorney's fees for pre-trial, trial, appellate, judgment, post-judgment, execution, and alternative dispute resolution, which",
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:1801"
+      }
+    ],
+    "confidence": 0.9,
+    "recommended_corrections": [],
+    "_retrieval": {
+      "query": "competition restrict competition non-compete not engage in",
+      "top_score": 0.928104043006897,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_014\",\n  \"status\": \"Not Applicable\",\n  \"evidence\": [\n    {\n      \"text\": \"NOW THEREFORE, in consideration of the premises, covenants and agreements and the mutual promises herein made, and in consideration of the representations, warranties, and covenants herein contained, and for other good and valuable consideration, the receipt and sufficiency of which is hereby acknowledged, the Parties hereto agree as follows: AGREEMENT 1. Definitions. A Confidential Information@ shall mean any and all information that a Party may reasonably expect to remain confidential and not shared with the general public at any time or that information that is protected by law.\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:672\"\n    },\n    {\n      \"text\": \"shared with the general public at any time or that information that is protected by law. 2. Services. It is anticipated that the Business Affiliate will provide services both for clients of the Business Affiliate and UDC that involve the use and disclosure of Confidential Information (the \\\"Services\\\"). Except as otherwise specified herein, the Parties may make any and all uses of Confidential Information necessary to perform the Services. Additionally, the Parties may disclose Confidential Information for the purposes authorized by this Agreement only (a) to its employees, subcontractors and agents, in accordance with this Agreement, or (b) as directed by the other Party. The Parties expressly agree\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:1300\"\n    },\n    {\n      \"text\": \"only (a) to its employees, subcontractors and agents, in accordance with this Agreement, or (b) as directed by the other Party. The Parties expressly agree that any and all uses or disclosures of the Confidential Information by a Party will be done in accordance with the terms of this Agreement and the provisions of all applicable federal and state laws and regulations. 3. Responsibilities of the Parties. With regard to its use and/or disclosure of Confidential Information, each Party hereby agrees to do the following: a. Use and/or disclose the Confidential Information only as permitted or required by this Agreement or as otherwise required by law\u037e 1\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:1875\"\n    },\n    {\n      \"text\": \"a. Use and/or disclose the Confidential Information only as permitted or required by this Agreement or as otherwise required by law\u037e 1 b. Report to the other Party, in writing, any use and/or disclosure of the Confidential Information that is not permitted or required by this Agreement of which a Party becomes aware within five (5) days of a Party=s discovery of such unauthorized use and/or disclosure\u037e c. Use appropriate safeguards to maintain the security of the Confidential Information and to prevent unauthorized use and/or disclosure of such Confidential Information\u037e d. Require all of its employees, representatives, subcontractors or\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:2440\"\n    },\n    {\n      \"text\": \"of such Confidential Information\u037e d. Require all of its employees, representatives, subcontractors or agents that receive or use or have access to Confidential Information under this Agreement to agree in writing to adhere to the same restrictions and conditions on the use and/or disclosure of Confidential Information that apply herein, including the obligation to return or destroy the Confidential Information as provided under paragraph g of this Section 3. e. Make available, during normal business hours, at a Party=s offices all records, books, agreements, policies and procedures relating to the use and/or disclosure of Confidential Information that is subject to this\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:0:3090\"\n    },\n    {\n      \"text\": \"Party. This provision shall apply to Confidential Information that is in the possession of subcontractors or agents of each Party. Each Party shall retain no copies of the Confidential Information of the other Party except as may be required by law. 6. Indemnification. The Parties hereby covenant and agree to indemnify and hold harmless each other, it's agents and representatives from and against any and all losses, costs, expenses, liabilities, claims, demands, judgments and its settlements of every nature that are actually incurred by a Party, including without limitation reasonable attorney's fees for pre-trial, trial, appellate, judgment, post-judgment, execution, and alternative dispute resolution, which\",\n      \"source\": \"UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf:1:1801\"\n    }\n  ],\n  \"confidence\": 0.9,\n  \"recommended_corrections\": []\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.928104043006897
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.9311558604240417
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.9450410604476929
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.9473355412483215
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 0.9509387016296387
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 0.9807422161102295
+      }
+    ],
+    "rule_name": "Non-Compete / Restrictive Covenants"
+  },
+  {
+    "rule_id": "RULE_015",
+    "status": "Not Applicable",
+    "evidence": [
+      {
+        "text": "no evidence",
+        "source": "no evidence"
+      }
+    ],
+    "confidence": 0.1,
+    "_retrieval": {
+      "query": "exclusivity MFN better terms exclusive most favored nation most-favored",
+      "top_score": 1.0575003623962402,
+      "num_retrieved": 6,
+      "evidence_low": false
+    },
+    "_raw_model_output": "```json\n{\n  \"rule_id\": \"RULE_015\",\n  \"status\": \"Not Applicable\",\n  \"evidence\": [\n    {\n      \"text\": \"no evidence\",\n      \"source\": \"no evidence\"\n    }\n  ],\n  \"confidence\": 0.1\n}\n```",
+    "_retrieved_docs": [
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 1.0575003623962402
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 1.0987675189971924
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 1.1166572570800781
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 1.1213960647583008
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 1,
+        "score": 1.1274727582931519
+      },
+      {
+        "source": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement.pdf",
+        "page": 0,
+        "score": 1.1276448965072632
+      }
+    ],
+    "rule_name": "Exclusivity and Most-Favored Terms",
+    "recommended_corrections": []
+  }
+]
