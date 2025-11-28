@@ -1,9 +1,15 @@
 import streamlit as st
 import os
+import tempfile
+import shutil
 from dotenv import load_dotenv
 from engine.utils import load_rules, save_results_csv, save_results_markdown, save_raw_json
 from rag.rag_checker import RAGComplianceChecker
 from ingestion.create_db import main as ingest_pdfs
+from ingestion.loaders import load_pdfs_from_dir
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_chroma import Chroma
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import json
 
 load_dotenv()
@@ -22,24 +28,102 @@ if "checker" not in st.session_state:
 if "current_rules" not in st.session_state:
     st.session_state.current_rules = None
 
+def ingest_uploaded_pdfs(uploaded_files, chroma_dir):
+    """Ingest uploaded PDF files into the vector database."""
+    from langchain_community.document_loaders import PyPDFLoader
+    from langchain_core.documents import Document
+    
+    documents = []
+    
+    # Temporarily save uploaded files
+    with tempfile.TemporaryDirectory() as tmpdir:
+        for uploaded_file in uploaded_files:
+            file_path = os.path.join(tmpdir, uploaded_file.name)
+            with open(file_path, "wb") as f:
+                f.write(uploaded_file.getbuffer())
+            
+            # Load PDF
+            try:
+                loader = PyPDFLoader(file_path)
+                docs = loader.load()
+                for doc in docs:
+                    doc.metadata["source"] = uploaded_file.name
+                documents.extend(docs)
+            except Exception as e:
+                st.error(f"Error loading {uploaded_file.name}: {str(e)}")
+    
+    if not documents:
+        raise ValueError("No documents were loaded from the uploaded files.")
+    
+    # Split and embed documents
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=800,
+        chunk_overlap=200,
+        add_start_index=True,
+        length_function=len,
+    )
+    chunks = text_splitter.split_documents(documents)
+    
+    # Create/update vector store
+    embeddings = GoogleGenerativeAIEmbeddings(
+        model=os.getenv("EMBED_MODEL", "models/text-embedding-004")
+    )
+    
+    db = Chroma(
+        persist_directory=chroma_dir,
+        embedding_function=embeddings,
+        collection_name="documents"
+    )
+    db.add_documents(chunks)
+    
+    return len(chunks)
+
 tab1, tab2, tab3, tab4 = st.tabs(["System Setup", "Check Single Rule", "Check All Rules", "Documentation"])
 
 with tab1:
     st.subheader("Initialize and Configure the System")
     
+    # Step 1: Choose PDF source
+    st.markdown("#### Step 1: Select Document Source")
+    pdf_source = st.radio(
+        "Choose where to load PDFs from:",
+        ["Use PDFs from data/pdfs folder", "Upload your own PDF files"],
+        horizontal=True
+    )
+    
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown("#### Step 1: Ingest Documents")
-        st.markdown("Load PDF documents from `data/pdfs` into the vector database.")
-        if st.button("Ingest PDFs", key="ingest_btn", use_container_width=True):
-            try:
-                with st.spinner("Ingesting documents..."):
-                    ingest_pdfs()
-                st.success("Documents ingested successfully!")
-                st.session_state.checker = None
-            except Exception as e:
-                st.error(f"Error ingesting documents: {str(e)}")
+        st.markdown("#### Step 1b: Ingest Documents")
+        
+        if pdf_source == "Use PDFs from data/pdfs folder":
+            st.markdown("Load PDF documents from `data/pdfs` into the vector database.")
+            if st.button("Ingest PDFs from Folder", key="ingest_btn", use_container_width=True):
+                try:
+                    with st.spinner("Ingesting documents..."):
+                        ingest_pdfs()
+                    st.success("Documents ingested successfully!")
+                    st.session_state.checker = None
+                except Exception as e:
+                    st.error(f"Error ingesting documents: {str(e)}")
+        else:
+            st.markdown("Upload your PDF files to ingest them into the vector database.")
+            uploaded_files = st.file_uploader(
+                "Choose PDF files",
+                type="pdf",
+                accept_multiple_files=True,
+                key="pdf_uploader"
+            )
+            
+            if uploaded_files and st.button("Ingest Uploaded PDFs", key="ingest_upload_btn", use_container_width=True):
+                try:
+                    with st.spinner("Ingesting uploaded documents..."):
+                        chroma_dir = os.getenv("CHROMA_PATH", "vector_db")
+                        num_chunks = ingest_uploaded_pdfs(uploaded_files, chroma_dir)
+                    st.success(f"Successfully ingested {len(uploaded_files)} file(s) ({num_chunks} chunks)!")
+                    st.session_state.checker = None
+                except Exception as e:
+                    st.error(f"Error ingesting uploaded documents: {str(e)}")
     
     with col2:
         st.markdown("#### Step 2: Initialize Checker")
