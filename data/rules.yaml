@@ -1,0 +1,255 @@
+
+- id: RULE_001
+  name: Identification of Parties
+  description: The contract must explicitly name all parties entering into the agreement.
+  severity: Critical
+  cuad_category: "Parties"
+  obligation_type: Mandatory
+  required_phrases:
+    - "by and between"
+    - "this agreement is made"
+    - "party" 
+  forbidden_phrases: []
+  keywords:
+    - "parties"
+    - "between"
+    - "entered into by"
+  notes: "Ensure party legal names appear and are identifiable."
+
+- id: RULE_002
+  name: Agreement Date
+  description: The contract must specify the date on which the agreement was executed.
+  severity: High
+  cuad_category: "Agreement Date"
+  obligation_type: Mandatory
+  required_phrases:
+    - "dated as of"
+    - "made this"
+    - "this agreement is dated"
+  forbidden_phrases: []
+  keywords:
+    - "agreement date"
+    - "execution date"
+    - "dated"
+  notes: "Accept common date formats; normalize during extraction."
+
+- id: RULE_003
+  name: Effective Date
+  description: The contract must clearly state the Effective Date when obligations begin.
+  severity: High
+  cuad_category: "Effective Date"
+  obligation_type: Mandatory
+  required_phrases:
+    - "effective date"
+    - "commencement date"
+    - "shall be effective as of"
+  forbidden_phrases: []
+  keywords:
+    - "effective upon"
+    - "effective as of"
+  notes: "If Effective Date is derived from Agreement Date, flag relation."
+
+- id: RULE_004
+  name: Expiration / Term
+  description: The contract must define initial term and expiration (or state 'perpetual').
+  severity: High
+  cuad_category: "Expiration Date"
+  obligation_type: Mandatory
+  required_phrases:
+    - "term"
+    - "shall expire"
+    - "perpetual"
+  forbidden_phrases: []
+  keywords:
+    - "expires"
+    - "initial term"
+    - "term of this agreement"
+  notes: "Detect numeric durations or explicit 'perpetual' language."
+
+- id: RULE_005
+  name: Renewal Terms
+  description: The contract must specify renewal mechanics (automatic renewal, renewal term length, or opt-out procedure).
+  severity: Medium
+  cuad_category: "Renewal Term"
+  obligation_type: Conditional
+  condition: "If the contract contains an initial term or mentions renewal"
+  required_phrases:
+    - "renewal"
+    - "automatically renew"
+    - "renew for a period"
+  forbidden_phrases: []
+  keywords:
+    - "renewal"
+    - "automatic extension"
+    - "successive period"
+  notes: "If absent, flag as 'no renewal clause'."
+
+- id: RULE_006
+  name: Notice to Terminate Renewal
+  description: The contract must define notice period required to prevent automatic renewal.
+  severity: Medium
+  cuad_category: "Notice to Terminate Renewal"
+  obligation_type: Mandatory
+  required_phrases:
+    - "notice"
+    - "prior to expiration"
+    - "days prior to"
+  forbidden_phrases: []
+  keywords:
+    - "notice to terminate"
+    - "notice period"
+  notes: "Extract numeric value (days/months) when present."
+
+- id: RULE_007
+  name: Governing Law and Jurisdiction
+  description: The contract must identify the governing law and forum for disputes.
+  severity: Critical
+  cuad_category: "Governing Law"
+  obligation_type: Mandatory
+  required_phrases:
+    - "governed by the laws of"
+    - "governed and construed"
+  forbidden_phrases: []
+  keywords:
+    - "governing law"
+    - "jurisdiction"
+    - "laws of the state"
+  notes: "Prefer specific state/country names in extraction."
+
+- id: RULE_008
+  name: Termination for Convenience
+  description: The contract must state whether either party may terminate without cause and the notice required.
+  severity: High
+  cuad_category: "Termination for Convenience"
+  obligation_type: Conditional
+  condition: "If termination clauses are present"
+  required_phrases:
+    - "terminate for convenience"
+    - "without cause"
+  forbidden_phrases: []
+  keywords:
+    - "terminate at any time"
+    - "without liability"
+  notes: "If allowed, extract notice period and any termination fees."
+
+- id: RULE_009
+  name: Anti-Assignment / Assignment Restrictions
+  description: The contract must state whether assignment to third parties is allowed and whether consent is required.
+  severity: Medium
+  cuad_category: "Anti-Assignment"
+  obligation_type: Mandatory
+  required_phrases:
+    - "may not assign"
+    - "without prior written consent"
+    - "assignability"
+  forbidden_phrases: []
+  keywords:
+    - "assignment"
+    - "transfer"
+    - "successors and assigns"
+  notes: "Detect carve-outs for affiliates or change of control."
+
+- id: RULE_010
+  name: Liability Cap / Limitation of Liability
+  description: The contract must include a limit (cap) on monetary liability where appropriate; unlimited liability is discouraged/flagged.
+  severity: High
+  cuad_category: "Cap on Liability"
+  obligation_type: Mandatory
+  required_phrases:
+    - "limitation of liability"
+    - "maximum liability"
+    - "aggregate liability"
+  forbidden_phrases:
+    - "unlimited liability"
+    - "liable for all damages"
+  keywords:
+    - "liability cap"
+    - "limitation of"
+  notes: "If 'uncapped' or missing, mark high-risk."
+
+- id: RULE_011
+  name: Insurance Requirements
+  description: The contract must specify required insurance coverage and minimum limits if applicable.
+  severity: Low
+  cuad_category: "Insurance"
+  obligation_type: Conditional
+  condition: "If services/products imply operational risk"
+  required_phrases:
+    - "shall maintain insurance"
+    - "insurance coverage"
+    - "commercial general liability"
+  forbidden_phrases: []
+  keywords:
+    - "insurance"
+    - "coverage"
+    - "policy"
+  notes: "Extract minimum coverage amounts if present."
+
+- id: RULE_012
+  name: Confidentiality / Non-Disclosure
+  description: The contract should include confidentiality commitments and permitted disclosures.
+  severity: High
+  cuad_category: "Confidentiality"
+  obligation_type: Mandatory
+  required_phrases:
+    - "confidential"
+    - "non-disclosure"
+    - "shall not disclose"
+  forbidden_phrases:
+    - "may disclose to third parties without restriction"
+  keywords:
+    - "confidentiality"
+    - "proprietary information"
+  notes: "Identify duration of confidentiality where specified."
+
+- id: RULE_013
+  name: License Grant (IP)
+  description: The contract must clearly state any license grants, scope, exclusivity, and transferability.
+  severity: Critical
+  cuad_category: "License Grant"
+  obligation_type: Mandatory
+  required_phrases:
+    - "hereby grants"
+    - "license to"
+    - "grants to"
+  forbidden_phrases: []
+  keywords:
+    - "license grant"
+    - "exclusive license"
+    - "sublicense"
+  notes: "Capture scope (territory, field, duration)."
+
+- id: RULE_014
+  name: Non-Compete / Restrictive Covenants
+  description: The contract must disclose non-compete or other competitive restrictions and their duration/scope.
+  severity: High
+  cuad_category: "Non-Compete"
+  obligation_type: Conditional
+  condition: "If restrictive covenants are present"
+  required_phrases:
+    - "non-compete"
+    - "not engage in"
+  forbidden_phrases: []
+  keywords:
+    - "competition"
+    - "restrict competition"
+  notes: "Flag broad or perpetual restrictions."
+
+- id: RULE_015
+  name: Exclusivity and Most-Favored Terms
+  description: The contract must indicate exclusivity commitments or most-favored-nation (MFN) clauses if present.
+  severity: Medium
+  cuad_category: "Exclusivity"
+  obligation_type: Conditional
+  condition: "If exclusivity or pricing parity clauses exist"
+  required_phrases:
+    - "exclusive"
+    - "most favored nation"
+    - "most-favored"
+  forbidden_phrases: []
+  keywords:
+    - "exclusivity"
+    - "MFN"
+    - "better terms"
+  notes: "Differentiate exclusivity from exclusive license."
+
