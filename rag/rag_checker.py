@@ -36,17 +36,17 @@ INSTRUCTIONS:
 - Do NOT hallucinate facts.
 
 Return JSON like:
-{
+{{
   "rule_id": "<RULE_XXX>",
   "status": "Compliant" | "Non-Compliant" | "Not Applicable",
-  "evidence": [{"text":"...", "source":"..."}],
+  "evidence": [{{"text":"...", "source":"..."}}],
   "confidence": 0.00,
   "recommended_corrections": ["..."]
-}
+}}
 """
 
 class RAGComplianceChecker:
-    def __init__(self, chroma_dir: str = "vector_db/chroma", embed_model: str = "embed-text-001", llm_model: str = LLM_MODEL):
+    def __init__(self, chroma_dir: str = "vector_db/chroma", embed_model: str = "models/text-embedding-004", llm_model: str = LLM_MODEL):
         self.retriever = ChromaRetriever(chroma_dir=chroma_dir, embed_model=embed_model)
         self.model = ChatGoogleGenerativeAI(model=llm_model)
 
@@ -99,8 +99,9 @@ class RAGComplianceChecker:
             context_block=context_block
         )
 
-        model_output = self.model.predict(prompt)
-        parsed = self._extract_json(model_output)
+        model_output = self.model.invoke(prompt)
+        model_output_str = str(model_output.content) if hasattr(model_output, 'content') else str(model_output)
+        parsed = self._extract_json(model_output_str)
 
         if not parsed:
             parsed = {
@@ -117,7 +118,7 @@ class RAGComplianceChecker:
             "num_retrieved": len(results),
             "evidence_low": evidence_low,
         }
-        parsed["_raw_model_output"] = model_output
+        parsed["_raw_model_output"] = model_output_str
         parsed["_retrieved_docs"] = [
             {"source": (d.metadata.get("source") or ""), "page": d.metadata.get("page", ""), "score": s}
             for d, s in results

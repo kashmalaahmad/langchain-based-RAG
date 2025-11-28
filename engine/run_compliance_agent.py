@@ -3,7 +3,7 @@ import os
 from engine.utils import load_rules, save_results_csv, save_results_markdown, save_raw_json
 from rag.rag_checker import RAGComplianceChecker
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)
 
 
 def run(chroma_dir: str = "vector_db/chroma", top_k: int = 6, rules_path: str = "data/rules.yaml", outdir: str = "."):

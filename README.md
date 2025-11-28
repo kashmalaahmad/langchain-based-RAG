@@ -7,8 +7,8 @@ A production-ready Retrieval-Augmented Generation (RAG) system for automated com
 This system automatically checks compliance rules against documents using:
 - **RAG Pipeline**: Retrieves relevant documents and uses LLMs for intelligent analysis
 - **Vector Database**: Chroma for efficient document embedding and retrieval
-- **LLM**: Google Gemini 1.5 Flash for compliance rule assessment
-- **Web Interface**: Gradio for user-friendly interaction
+- **LLM**: Google Gemini 2.0 Flash for compliance rule assessment
+- **Web Interface**: Streamlit for interactive user experience
 
 ## Features
 
@@ -17,18 +17,17 @@ This system automatically checks compliance rules against documents using:
 - **Rule-Based Compliance Checking**: Assess multiple compliance rules against documents
 - **Batch Processing**: Check all rules at once or individually
 - **Multiple Report Formats**: CSV, Markdown, and JSON exports
-- **Web UI**: Interactive Gradio interface for easy access
+- **Web UI**: Interactive Streamlit interface for easy access
 - **Configurable Parameters**: Top-K retrieval, thresholds, and batch sizes
 
 ## Project Structure
 
 ```
 RAG-Gemini/
-├── app.py                      # Gradio web interface
+├── streamlit_app.py            # Streamlit web interface
 ├── requirements.txt            # Python dependencies
 ├── .env.example                # Environment variables template
 ├── .gitignore                  # Git ignore rules
-├── GRADIO_README.md           # UI documentation
 │
 ├── data/
 │   ├── rules.yaml             # Compliance rules definition
@@ -46,6 +45,7 @@ RAG-Gemini/
 │   ├── rag_checker.py         # RAG compliance checker logic
 │   └── retriever.py           # Chroma retriever wrapper
 │
+├── reports/                    # Generated compliance reports
 └── vector_db/                 # Chroma database storage
 ```
 
@@ -102,20 +102,19 @@ Get your API key at: https://makersuite.google.com/app/apikey
 
 ## Usage
 
-### Web Interface (Recommended)
+### Web Interface (Streamlit)
 
 ```bash
-python app.py
+streamlit run streamlit_app.py
 ```
 
-Visit `http://localhost:7860` in your browser.
+Visit `http://localhost:8501` in your browser.
 
-**Workflow:**
-1. Click "Ingest PDFs" to load documents from `data/pdfs`
-2. Click "Initialize System" to set up the checker
-3. Click "Load Rules" to load compliance rules
-4. Check single rules or run batch compliance checks
-5. Download reports in CSV, Markdown, or JSON format
+**Features:**
+- **System Setup Tab**: Ingest PDFs, initialize checker, load rules
+- **Check Single Rule Tab**: Select and check individual compliance rules
+- **Check All Rules Tab**: Run batch compliance checks on all rules
+- **Documentation Tab**: View system guide and configuration details
 
 ### Command Line
 
@@ -125,6 +124,46 @@ python -m engine.run_compliance_agent \
   --top_k 6 \
   --rules_path data/rules.yaml \
   --outdir reports
+```
+
+## Deploying Streamlit
+
+### Local Deployment
+```bash
+streamlit run streamlit_app.py --logger.level=error
+```
+
+### Deploy to Streamlit Cloud
+
+1. Push code to GitHub repository
+2. Go to https://share.streamlit.io
+3. Create new app and select your GitHub repository
+4. Point to `streamlit_app.py`
+5. Add secrets in Streamlit Cloud:
+   - Go to Settings → Secrets
+   - Add `GOOGLE_API_KEY=your_key_here`
+
+### Deploy with Docker
+
+Create `Dockerfile`:
+```dockerfile
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+
+EXPOSE 8501
+CMD ["streamlit", "run", "streamlit_app.py"]
+```
+
+Build and run:
+```bash
+docker build -t rag-compliance .
+docker run -p 8501:8501 -e GOOGLE_API_KEY=your_key rag-compliance
 ```
 
 ## Rule Format

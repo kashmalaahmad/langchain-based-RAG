@@ -57,3 +57,5 @@ vector_db/
 reports/
 *.sqlite3
 .gradio_cached_examples
+app.py
+GRADIO_README.md
