@@ -53,8 +53,6 @@ coverage.xml
 .settings/
 *.sublime-project
 *.sublime-workspace
-vector_db/
-
 !reports/.gitkeep
 *.sqlite3
 .gradio_cached_examples

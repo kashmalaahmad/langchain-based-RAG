@@ -5,7 +5,7 @@ import shutil
 from dotenv import load_dotenv
 from engine.utils import load_rules, save_results_csv, save_results_markdown, save_raw_json
 from rag.rag_checker import RAGComplianceChecker
-from ingestion.create_db import main as ingest_pdfs
+from ingestion.create_db import main as ingest_pdfs, split_documents, add_chunks_in_batches
 from ingestion.loaders import load_pdfs_from_dir
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
@@ -22,6 +22,35 @@ st.markdown("""
 This application uses Retrieval-Augmented Generation (RAG) to automatically check 
 compliance rules against your documents. Powered by Gemini AI and Chroma vector database.
 """)
+
+# ========== CACHED FUNCTIONS FOR PERFORMANCE ==========
+
+@st.cache_resource(show_spinner=False)
+def initialize_checker():
+    """
+    Initialize RAG compliance checker (cached once).
+    This function runs ONLY ONCE and the result is reused.
+    """
+    try:
+        chroma_dir = os.getenv("CHROMA_PATH", "vector_db")
+        checker = RAGComplianceChecker(chroma_dir=chroma_dir)
+        return checker
+    except Exception as e:
+        st.error(f"Error initializing checker: {str(e)}")
+        return None
+
+@st.cache_resource(show_spinner=False)
+def load_rules_cached():
+    """
+    Load compliance rules (cached once).
+    """
+    try:
+        rules_path = os.getenv("RULES_PATH", "data/rules.yaml")
+        rules = load_rules(rules_path)
+        return rules
+    except Exception as e:
+        st.error(f"Error loading rules: {str(e)}")
+        return None
 
 if "checker" not in st.session_state:
     st.session_state.checker = None
@@ -83,27 +112,69 @@ tab1, tab2, tab3, tab4 = st.tabs(["System Setup", "Check Single Rule", "Check Al
 with tab1:
     st.subheader("Initialize and Configure the System")
     
-    # Step 1: Choose PDF source
-    st.markdown("#### Step 1: Select Document Source")
+    st.info("""
+    **⚡ Performance Tip:** The system is optimized for Streamlit Cloud.
+    - First run loads and caches everything (~1-2 minutes)
+    - Subsequent runs are instant
+    - Vector database is cached in memory for fast access
+    """)
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.markdown("#### Step 1: Load Checker")
+        st.markdown("Initialize the compliance checker (auto-cached on first run).")
+        if st.button("Initialize Checker", key="init_checker_btn", use_container_width=True):
+            with st.spinner("Loading RAG system..."):
+                st.session_state.checker = initialize_checker()
+            if st.session_state.checker:
+                st.success("✓ Checker initialized!")
+            else:
+                st.error("Failed to initialize checker")
+    
+    with col2:
+        st.markdown("#### Step 2: Load Rules")
+        st.markdown("Load compliance rules from configuration.")
+        if st.button("Load Rules", key="load_rules_btn", use_container_width=True):
+            with st.spinner("Loading rules..."):
+                st.session_state.current_rules = load_rules_cached()
+            if st.session_state.current_rules:
+                st.success(f"✓ Loaded {len(st.session_state.current_rules)} rules!")
+            else:
+                st.error("Failed to load rules")
+    
+    with col3:
+        st.markdown("#### Step 3: Database Status")
+        st.markdown("Check vector database status.")
+        if st.button("Check DB Status", key="check_db_btn", use_container_width=True):
+            chroma_dir = os.getenv("CHROMA_PATH", "vector_db")
+            if os.path.exists(chroma_dir):
+                st.success(f"✓ Database exists at: {chroma_dir}")
+            else:
+                st.warning("Database not found. Ingest documents first.")
+    
+    st.divider()
+    
+    # Step 2: Choose PDF source
+    st.markdown("#### Document Ingestion (Optional)")
     pdf_source = st.radio(
         "Choose where to load PDFs from:",
         ["Use PDFs from data/pdfs folder", "Upload your own PDF files"],
         horizontal=True
     )
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("#### Step 1b: Ingest Documents")
-        
         if pdf_source == "Use PDFs from data/pdfs folder":
             st.markdown("Load PDF documents from `data/pdfs` into the vector database.")
             if st.button("Ingest PDFs from Folder", key="ingest_btn", use_container_width=True):
                 try:
-                    with st.spinner("Ingesting documents..."):
+                    with st.spinner("Ingesting documents (this may take a while)..."):
                         ingest_pdfs()
                     st.success("Documents ingested successfully!")
-                    st.session_state.checker = None
+                    # Clear checker cache to reload with new documents
+                    st.cache_resource.clear()
                 except Exception as e:
                     st.error(f"Error ingesting documents: {str(e)}")
         else:
@@ -124,30 +195,8 @@ with tab1:
                     st.session_state.checker = None
                 except Exception as e:
                     st.error(f"Error ingesting uploaded documents: {str(e)}")
-    
-    with col2:
-        st.markdown("#### Step 2: Initialize Checker")
-        st.markdown("Initialize the compliance checker with the vector database.")
-        if st.button("Initialize System", key="init_btn", use_container_width=True):
-            try:
-                with st.spinner("Initializing checker..."):
-                    chroma_dir = os.getenv("CHROMA_PATH", "vector_db")
-                    st.session_state.checker = RAGComplianceChecker(chroma_dir=chroma_dir)
-                st.success("Compliance checker initialized successfully!")
-            except Exception as e:
-                st.error(f"Error initializing checker: {str(e)}")
-    
-    with col3:
-        st.markdown("#### Step 3: Load Rules")
-        st.markdown("Load compliance rules from YAML configuration.")
-        if st.button("Load Rules", key="load_btn", use_container_width=True):
-            try:
-                with st.spinner("Loading rules..."):
-                    rules_path = os.getenv("RULES_PATH", "data/rules.yaml")
-                    st.session_state.current_rules = load_rules(rules_path)
-                st.success(f"Loaded {len(st.session_state.current_rules)} compliance rules!")
-            except Exception as e:
-                st.error(f"Error loading rules: {str(e)}")
+                    # Clear checker cache to reload with new documents
+                    st.cache_resource.clear()
 
 with tab2:
     st.subheader("Check Individual Compliance Rules")
